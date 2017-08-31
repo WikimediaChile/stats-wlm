@@ -14,8 +14,7 @@ class routing
         $fat->mset([
             'participation' => \model\participation::data($country, $year),
             'uploads' => \model\daily_contributions::data($country, $year),
-            'daily' => \model\daily_participation::data($country, $year),
-            'country' => \model\country_stats::data($country),
+            'daily' => \model\daily_participation::data($country, $year)
         ], 'stats_');
         $fat->set('country', \helper\country::getName($country));
         $fat->set('contenido', 'country.htm');
