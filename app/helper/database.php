@@ -14,4 +14,9 @@ class database
         }
         return self::$context;
     }
+
+    public static function log(bool $log = true)
+    {
+        self::context()->log($log);
+    }
 }
