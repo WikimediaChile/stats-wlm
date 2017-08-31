@@ -20,3 +20,7 @@ $fat->route('GET /@year/@country', '\route\routing::statsCountry');
 $fat->route('GET /@country', '\route\routing::mainCountry');
 
 $fat->run();
+
+if ($fat->exists('GET.verbose')) {
+    echo nl2br(\helper\database::context()->log());
+}
