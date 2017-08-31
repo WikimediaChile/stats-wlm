@@ -1,0 +1,10 @@
+{
+    "require": {
+        "bcosca/fatfree": "^3.6"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "app/"
+        }
+    }
+}

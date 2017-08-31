@@ -1,0 +1,19 @@
+<h3>{{@title.compare_years}}</h3>
+<div class="ui grid">
+	<div class="row">
+		<div class="eight wide column">
+			{{@graph.users}}<br />
+			<canvas id="users" width="400" height="400"></canvas>
+		</div>
+		<div class="eight wide column">
+			{{@graph.photos}}<br />
+			<canvas id="files" width="400" height="400"></canvas>
+		</div>
+	</div>
+	<div class="row">
+		<div class="sixteen wide column">
+			{{@graph.photos_per_user}}<br />
+			<canvas id="ratio" width="400" height="400"></canvas>
+		</div>
+	</div>
+</div>

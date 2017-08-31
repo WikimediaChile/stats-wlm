@@ -1,0 +1,11 @@
+[globals]
+DEBUG=3
+UI=../ui/
+TEMP=../tmp/
+LOCALES=../message/
+AUTOLOAD=../app/
+FALLBACK=es
+
+[site]
+CONTEST=Wiki Loves Monuments
+year=2017

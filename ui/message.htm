@@ -1,0 +1,11 @@
+<h1>{{@site.CONTEST}}</h1>
+<div class="ui warning icon message">
+	<i class="warning icon"></i>
+	<div class="content">
+		<div class="header">
+			{{@message.header}}
+		</div>
+		<p>{{@message.message}}</p>
+	</div>
+</div>
+	<include if="{{isset(@content_foot)}}" href="{{@content_foot}}" />

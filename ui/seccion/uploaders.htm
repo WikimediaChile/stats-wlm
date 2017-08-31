@@ -1,0 +1,51 @@
+<div class="ui grid">
+    <div class="row">
+        <div class="twelve wide column">
+            <h3>{{@title.uploaders}}</h3>
+            <table class="ui very basic unstackable table">
+                <thead>
+                    <tr>
+                        <th class="fourteen wide">{{@table.user}}</th>
+                        <th class="one wide">{{@table.qty}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <repeat group="{{@stats_participation}}" value="{{@user}}" key="{{@counted}}">
+                        <tr>
+                            <td>
+                                <repeat group="{{@user}}" value="{{@us}}">
+                                    <a href="{{@PARAMS.0}}/detail?user={{@us}}">{{@us}}</a> -
+                                </repeat>
+                            </td>
+                            <td class="right aligned">{{@counted | format}}</td>
+                        </tr>
+                    </repeat>
+                </tbody>
+            </table>
+        </div>
+        <div class="four wide column">
+            <h3>{{@title.days}}</h3>
+            <table class="ui very basic unstackable table">
+                <thead>
+                    <tr>
+                        <th class="fourteen wide">{{@table.day}}</th>
+                        <th class="one wide">{{@table.qty}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <repeat group="{{@stats_uploads}}" value="{{@day}}">
+                        <tr>
+                            <td><a href="{{@PARAMS.0}}/detail?date={{@day.day}}">{{@day.day}}</a></td>
+                            <td class="right aligned">{{ @day.counted | format }}</td>
+                        </tr>
+                    </repeat>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" class="warning">{{@table.utc}}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<h1>{{F3::get('site.CONTEST')}}</h1>
+<div class="ui four cards">
+  <repeat group="{{@list}}" value="{{@el}}">
+    <a class="ui card" href="https://commons.wikimedia.org/wiki/File:{{@el.photo_filename}}" target="_blank">
+      <div class="image">
+        <img src="https://commons.wikimedia.org/w/thumb.php?f={{ str_replace('&amp;', '%26', @el.photo_filename) |raw }}&amp;w=500" />
+      </div>
+      <div class="content">
+        <div class="description">
+          <p align="center">
+            <small>{{@el.photo_filename}}</small>
+            <br />
+            {{@el.photo_resolution}} ({{number_format(@el.photo_size/1024, 2) | format}} KB)
+            <br />
+            {{@card.by}} {{@el.photo_username}}
+          </p>
+        </div>
+      </div>
+    </a>
+  </repeat>
+</div>
+{{@Paginator->render()}}

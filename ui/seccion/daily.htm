@@ -1,0 +1,11 @@
+<h3>{{@title.uploads_per_user_day}}</h3>
+<repeat group="{{array_keys(@stats_daily)}}" value="{{@day}}">
+	<h4 class="ui header">{{@day}}
+		<div class="sub header">{{@title.header_user_photos,count(@stats_daily[@day]),array_sum(\Matrix::instance()->pick(@stats_daily[@day], 'counted'))|format}}</div>
+	</h4>
+	<p>
+		<repeat group="{{@stats_daily[@day]}}" value="{{@user}}">
+			<a href="{{@PARAMS.0}}/detail?user={{@user['user']}}&amp;date={{@day}}">{{@user['user']}}</a> <small>({{@user['counted']}})</small> -
+		</repeat>
+	</p>
+</repeat>

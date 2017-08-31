@@ -1,0 +1,6 @@
+vendor/
+*.ini
+!tmp/README
+tmp/
+*.lock
+files/*

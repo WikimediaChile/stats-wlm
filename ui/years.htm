@@ -1,0 +1,12 @@
+<check if="{{count(@years)}}">
+  <h3>{{@title.other_years}}</h3>
+  <div class="ui centered align">
+  <div class="ui horizontal bulleted link list">
+    <repeat group="{{@years}}" value="{{@year}}">
+      <a class="item" href="{{@BASE}}/{{@PARAMS.country}}/{{@year.year}}">
+        {{@year.year}}
+      </a>
+    </repeat>
+  </div>
+</div>
+</check>
