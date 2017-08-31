@@ -1,0 +1,35 @@
+<h1>{{@site.title,@site.CONTEST,@country|format}}</h1>
+<div class="ui bottom attached segment">
+    Contest:
+    <repeat group="{{@stats_country.years}}" value="{{@year}}">
+        <a href="/{{@year}}{{@PARAMS.0}}">{{@year}}</a> -
+    </repeat>
+	<include href="seccion/years.htm" />
+</div>
+
+<script>
+users = {
+	labels: [{{implode(",", array_keys(@stats_country.users))}}],
+	datasets:[
+		{
+			data: [{{implode(",", @stats_country.users)}}]
+		}
+	]
+}
+files = {
+	labels: [{{implode(",", array_keys(@stats_country.photos))}}],
+	datasets:[
+		{
+			data: [{{implode(",", @stats_country.photos)}}]
+		}
+	]
+}
+ratio = {
+	labels: [{{implode(",", array_keys(@stats_country.ratio))}}],
+	datasets:[
+		{
+			data: [{{implode(",", @stats_country.ratio)}}]
+		}
+	]
+}
+</script>

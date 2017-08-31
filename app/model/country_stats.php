@@ -23,9 +23,11 @@ class country_stats extends \DB\SQL\Mapper
             $tabla['users'][$value->photo_year] = $value->users;
             $tabla['ratio'][$value->photo_year] = $value->photos/($value->users ?: 1);
         }
+        $tabla['years'] = array_keys(array_filter($tabla['users'], function ($el) {
+            return $el > 0;
+        }));
         ksort($tabla);
         return $tabla;
-
     }
 
     private static function getData(string $country) : array

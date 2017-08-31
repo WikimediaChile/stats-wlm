@@ -17,6 +17,6 @@ $fat->route('GET /*', function ($fat) {
 $fat->route('GET /test', '\route\test::init');
 $fat->route('GET /@year/@country/detail', '\route\routing::listingCountry');
 $fat->route('GET /@year/@country', '\route\routing::statsCountry');
-$fat->route('GET /@country', '\route\routing::statsCountry');
+$fat->route('GET /@country', '\route\routing::mainCountry');
 
 $fat->run();

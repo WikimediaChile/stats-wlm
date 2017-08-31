@@ -2,7 +2,6 @@
 <div class="ui top attached tabular blue secondary pointing menu">
 	<a class="active item" data-tab="first">{{@tab.uploaders}}</a>
 	<a class="item" data-tab="second">{{@tab.users}}</a>
-	<a class="item" data-tab="third">{{@tab.years}}</a>
 </div>
 <div class="ui bottom attached active tab segment" data-tab="first">
 	<include href="seccion/uploaders.htm" />
@@ -10,32 +9,3 @@
 <div class="ui bottom attached tab segment" data-tab="second">
 	<include href="seccion/daily.htm" />
 </div>
-<div class="ui bottom attached tab segment" data-tab="third">
-	<include href="seccion/years.htm" />
-</div>
-<script>
-users = {
-	labels: [{{implode(",", array_keys(@stats_country.users))}}],
-	datasets:[
-		{
-			data: [{{implode(",", @stats_country.users)}}]
-		}
-	]
-}
-files = {
-	labels: [{{implode(",", array_keys(@stats_country.photos))}}],
-	datasets:[
-		{
-			data: [{{implode(",", @stats_country.photos)}}]
-		}
-	]
-}
-ratio = {
-	labels: [{{implode(",", array_keys(@stats_country.ratio))}}],
-	datasets:[
-		{
-			data: [{{implode(",", @stats_country.ratio)}}]
-		}
-	]
-}
-</script>

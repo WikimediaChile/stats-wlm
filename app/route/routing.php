@@ -50,6 +50,19 @@ class routing
         return $fat;
     }
 
+    public static function mainCountry(\Base $fat) : \Base
+    {
+        $country = $fat->get('PARAMS.country');
+
+        $fat->mset([
+            'country' => \model\country_stats::data($country),
+        ], 'stats_');
+        $fat->set('country', \helper\country::getName($country));
+        $fat->set('contenido', 'countryMain.htm');
+
+        return $fat;
+    }
+
     public static function afterroute(\Base $fat) : \Base
     {
         echo \Template::instance()->render('layout.htm');
