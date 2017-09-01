@@ -18,6 +18,6 @@ class stats
     private static function getData(string $country, int $year) : array
     {
         $filter = ['photo_country' => $country, 'photo_year' => $year];
-        return (new photo)->find(photo::prepare($filter));
+        return (new photo)->select('photo_dateformat, photo_username', photo::prepare($filter));
     }
 }
