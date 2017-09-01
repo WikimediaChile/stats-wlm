@@ -24,12 +24,10 @@ class load
         $titles = array_map(function ($f) {
             return 'File:'.$f;
         }, $filenames);
-        $titles = array_slice($titles, 0, 40);
-
         $query = ['action' => 'query'
         , 'prop' => 'categories'
         , 'cllimit' => 'max'
-        , 'titles' => implode("|",$titles)
+        , 'titles' => implode("|", $titles)
     ];
         return \helper\api_mediawiki::get($query);
     }
