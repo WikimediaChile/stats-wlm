@@ -56,6 +56,9 @@ $fat->route('GET /metadata/@year/@limit', function (\Base $fat) {
     $i = 0;
     $total_files = count($Result);
     foreach ($Result as $page) {
+        if(!is_array($page->categories)){
+            $uploaded = [];
+        }
         $uploaded = array_filter($page->categories, function ($f) {
             return stristr($f->title, 'Uploaded') !== false;
         });
