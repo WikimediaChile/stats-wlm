@@ -8,14 +8,15 @@ class campaign
 {
     public static function stats(string $country, int $year) : array
     {
-        $sql = 'select ifnull(meta_tool, \'not-process\') meta_tool, count(1) files
-            from photo
+        $sql = 'select ifnull(meta_tool, \'not-processed!\') meta_tool, count(1) files
+            , (select count(1) from photo ph2 where ph.photo_country = ph2.photo_country and ph.photo_year = ph2.photo_year) total
+            from photo ph
             left join other_meta
-                on photo_filename = meta_filename
+            on photo_filename = meta_filename
             where photo_country = :country
-	           and photo_year = :year
-           group by photo_country, photo_year, meta_tool,meta_tool
-           order by 2 desc';
+                and photo_year = :year
+            group by photo_country, photo_year, meta_tool,meta_tool
+            order by 2 desc';
         return database::context()->exec($sql, ['country' => $country, 'year' => $year]);
     }
 

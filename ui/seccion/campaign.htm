@@ -7,6 +7,7 @@
                     <tr>
                         <th class="fourteen wide">{{@table.campaign}}</th>
                         <th class="one wide">{{@table.qty}}</th>
+                        <th class="one wide">%</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -14,6 +15,7 @@
                         <tr>
                             <td>{{@campaign.meta_tool}}</td>
                             <td class="right aligned">{{ @campaign.files | format }}</td>
+                            <td class="right aligned">{{ round(@campaign.files/@campaign.total*100,2) | format }}</td>
                         </tr>
                     </repeat>
                 </tbody>
