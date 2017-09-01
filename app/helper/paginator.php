@@ -33,7 +33,7 @@ class paginator
 
     public function hasPages(): bool
     {
-        return $this->pages > 0;
+        return $this->pages > 1;
     }
 
     public function getPage() : int
