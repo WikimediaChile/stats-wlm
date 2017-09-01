@@ -1,5 +1,7 @@
 <?php
 
+ini_set('memory_limit','256M');
+
 // Kickstart the framework
 require_once "../vendor/autoload.php";
 
