@@ -6,7 +6,7 @@
     </repeat>
 	<include href="seccion/years.htm" />
 </div>
-
+<script type="text/javascript" src="{{@BASE}}/js/Chart.min.js"></script>
 <script>
 users = {
 	labels: [{{implode(",", array_keys(@stats_country.users))}}],
