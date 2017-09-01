@@ -4,7 +4,7 @@ namespace model;
 
 use helper\database;
 
-class photo extends \DB\SQL\Mapper implements interface_photo
+class photo extends abstract_model
 {
     public function __construct()
     {
@@ -21,18 +21,4 @@ class photo extends \DB\SQL\Mapper implements interface_photo
         return (new self)->count(self::prepare($filter));
     }
 
-    public static function exist(array $filter) : bool
-    {
-        return !!(new self)->count(self::prepare($filter));
-    }
-
-    public static function prepare(array $filter) : array
-    {
-        $where = [];
-        foreach (array_keys($filter) as $item) {
-            $where []= " $item = :$item";
-        }
-        $where = implode(' AND', $where);
-        return [$where, $filter];
-    }
 }
