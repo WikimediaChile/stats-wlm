@@ -5,7 +5,8 @@ return array(
         array(
             'uploaders' => 'Resumen',
             'users' => 'Usuarios',
-            'years' => 'Años'
+            'years' => 'Años',
+            'campaign' => 'Campaña de subida (beta!)'
             )
         ,
     'title' =>
@@ -15,7 +16,8 @@ return array(
             'uploads_per_user_day' => 'Subidas por usuario y día',
             'header_user_photos' => '{0,number} usuarios; {1,number} fotos',
             'other_years' => 'Otros años',
-            'compare_years' => 'Comparación de años'
+            'compare_years' => 'Comparación de años',
+            'campaign' => 'Subidas por campaña'
             )
         ,
     'table' =>
@@ -24,7 +26,8 @@ return array(
             'qty' => 'Cantidad de fotos',
             'day' => 'Día',
             'utc' => 'Las fechas están la zona horaria UTC',
-            'numero' => '{0,number}'
+            'numero' => '{0,number}',
+            'campaign' => 'Campaña / Herramienta'
             )
         ,
     'graph' =>

@@ -24,4 +24,7 @@ $fat->route('GET /@year/@country/detail', '\route\routing::listingCountry');
 $fat->route('GET /@year/@country', '\route\routing::statsCountry');
 $fat->route('GET /@country', '\route\routing::mainCountry');
 
+#filters
+\helper\filters::registry();
+
 $fat->run();

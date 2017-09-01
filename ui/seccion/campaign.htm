@@ -1,0 +1,38 @@
+<h3>{{@title.campaign}}</h3>
+<div class="ui grid">
+    <div class="row">
+        <div class="twelve wide column">
+            <table class="ui very basic unstackable table">
+                <thead>
+                    <tr>
+                        <th class="fourteen wide">{{@table.campaign}}</th>
+                        <th class="one wide">{{@table.qty}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <repeat group="{{@campaigns}}" value="{{@campaign}}">
+                        <tr>
+                            <td>{{@campaign.meta_tool}}</td>
+                            <td class="right aligned">{{ @campaign.files | format }}</td>
+                        </tr>
+                    </repeat>
+                </tbody>
+            </table>
+        </div>
+        <div class="four wide column">
+            <canvas id="campaign" width="100" height="400"></canvas>
+        </div>
+    </div>
+</div>
+<script>
+campaign = {
+	labels: [{{\helper\filters::instance()->token_js(@campaigns, 'meta_tool', "'")}}],
+	datasets:[
+		{
+			data: [{{\helper\filters::instance()->token_js(@campaigns, 'files', '')}}]
+		}
+	]
+}
+var ctx3 = document.getElementById("campaign").getContext("2d");
+new Chart(ctx3).Bar(campaign);
+</script>

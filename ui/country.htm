@@ -2,10 +2,14 @@
 <div class="ui top attached tabular blue secondary pointing menu">
 	<a class="active item" data-tab="first">{{@tab.uploaders}}</a>
 	<a class="item" data-tab="second">{{@tab.users}}</a>
+    <a class="item" data-tab="third">{{@tab.campaign}}</a>
 </div>
 <div class="ui bottom attached active tab segment" data-tab="first">
 	<include href="seccion/uploaders.htm" />
 </div>
 <div class="ui bottom attached tab segment" data-tab="second">
 	<include href="seccion/daily.htm" />
+</div>
+<div class="ui bottom attached tab segment" data-tab="third">
+	<include href="seccion/campaign.htm" />
 </div>

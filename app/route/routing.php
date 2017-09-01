@@ -14,6 +14,7 @@ class routing
         $title = $fat->format($fat->get('site.title'), $fat->get('site.CONTEST'), \helper\country::getName($country));
         $fat->set('page.title', $title);
 
+        $fat->set('campaigns', \model\query\campaign::stats($country, $year));
         $fat->set('stats', \model\stats::data($country, $year));
         $fat->set('country', \helper\country::getName($country));
         $fat->set('content', 'country.htm');
@@ -37,16 +38,13 @@ class routing
             $filters['photo_dateformat'] = $date;
         }
 
-        if(!!$user && !!$date){
+        if (!!$user && !!$date) {
             $title = $fat->format($fat->get('site.photos_user_day'), $fat->get('site.CONTEST'), \helper\country::getName($country), $user, $date);
-        }
-        elseif(!!$date){
+        } elseif (!!$date) {
             $title = $fat->format($fat->get('site.photo_day'), $fat->get('site.CONTEST'), \helper\country::getName($country), $date);
-        }
-        elseif(!!$user){
+        } elseif (!!$user) {
             $title = $fat->format($fat->get('site.photo_user'), $fat->get('site.CONTEST'), \helper\country::getName($country), $user);
-        }
-        else{
+        } else {
             $title = $fat->format($fat->get('site.title'), $fat->get('site.CONTEST'), \helper\country::getName($country));
         }
 
