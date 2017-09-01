@@ -10,7 +10,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <repeat group="{{@stats_participation}}" value="{{@user}}" key="{{@counted}}">
+                    <repeat group="{{@stats.users}}" value="{{@user}}" key="{{@counted}}">
                         <tr>
                             <td>
                                 <repeat group="{{@user}}" value="{{@us}}">
@@ -33,10 +33,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <repeat group="{{@stats_uploads}}" value="{{@day}}">
+                    <repeat group="{{@stats.days}}" key="{{@day}}" value="{{@counted}}">
                         <tr>
-                            <td><a href="{{@PARAMS.0}}/detail?date={{@day.day}}">{{@day.day}}</a></td>
-                            <td class="right aligned">{{ @day.counted | format }}</td>
+                            <td><a href="{{@PARAMS.0}}/detail?date={{@day}}">{{@day}}</a></td>
+                            <td class="right aligned">{{ @counted | format }}</td>
                         </tr>
                     </repeat>
                 </tbody>

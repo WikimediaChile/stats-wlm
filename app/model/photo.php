@@ -4,7 +4,7 @@ namespace model;
 
 use helper\database;
 
-class photo extends \DB\SQL\Mapper
+class photo extends \DB\SQL\Mapper implements interface_photo
 {
     public function __construct()
     {
@@ -26,7 +26,7 @@ class photo extends \DB\SQL\Mapper
         return !!(new self)->count(self::prepare($filter));
     }
 
-    private static function prepare(array $filter) : array
+    public static function prepare(array $filter) : array
     {
         $where = [];
         foreach (array_keys($filter) as $item) {

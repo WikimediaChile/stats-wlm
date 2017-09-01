@@ -12,7 +12,8 @@ if (php_sapi_name() !== "cli") {
 }
 
 $fat->route('GET /import/@year', function (\Base $fat) {
-    $filename = sprintf('files/files-%d.txt', (int)$fat->get('PARAMS.year'));
+    $year = (int)$fat->get('PARAMS.year');
+    $filename = sprintf('files/files-%d.txt', $year);
     try {
         $file = new \SplFileObject($filename);
     } catch (\Exception $e) {
@@ -29,7 +30,7 @@ $fat->route('GET /import/@year', function (\Base $fat) {
     while ($file->eof() === false) {
         $print = implode("/", [++$i, $total_files, (memory_get_usage()/1024)]);
         fwrite(STDOUT, $print.PHP_EOL);
-        \cli\load::addData($Photo, $file->fgets(), (int)$fat->get('PARAMS.year'));
+        \cli\load::addData($Photo, $line = $file->fgets(), $year);
     }
 });
 

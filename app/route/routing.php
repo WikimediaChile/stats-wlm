@@ -11,11 +11,7 @@ class routing
         $year = $fat->exists('PARAMS.year') ? (int)$fat->get('PARAMS.year') : (int)$fat->get('site.YEAR');
         $country = $fat->get('PARAMS.country');
 
-        $fat->mset([
-            'participation' => \model\participation::data($country, $year),
-            'uploads' => \model\daily_contributions::data($country, $year),
-            'daily' => \model\daily_participation::data($country, $year)
-        ], 'stats_');
+        $fat->set('stats', \model\stats::data($country, $year));
         $fat->set('country', \helper\country::getName($country));
         $fat->set('contenido', 'country.htm');
 
