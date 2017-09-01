@@ -33,9 +33,13 @@ var campaign = {
     	labels: [{{\helper\filters::instance()->token_js(@campaigns, 'meta_tool', "'")}}],
     	datasets:[
     		{
-    			data: [{{\helper\filters::instance()->token_js(@campaigns, 'files', '')}}]
+    			data: [{{\helper\filters::instance()->token_js(@campaigns, 'files', '')}}],
+                backgroundColor: ['#138C89', '#4DBFBC', '#2E7371', '#143332', '#6EA6A4'
+                    , '#90D9D7', '#4C7372', '#2D403F', '#121919', '#44A616', '#88E55C'
+                    , '#5B993D', '#3C6629', '#B1E599'
+                ]
     		}
-    	]
+    	],
     }
 }
 
