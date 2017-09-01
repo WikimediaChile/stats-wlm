@@ -35,8 +35,12 @@ $fat->route('GET /import/@year', function (\Base $fat) {
 });
 
 $fat->route('GET /metadata/@year', function (\Base $fat) {
+    $fat->reroute('/metadata/'.$fat->get('PARAMS.year').'/15');
+});
+
+$fat->route('GET /metadata/@year/@limit', function (\Base $fat) {
     $year = (int)$fat->get('PARAMS.year');
-    $limit = (int)$fat->get('GET.limit') ?: 40;
+    $limit = (int)$fat->get('PARAMS.limit');
     \helper\database::log(false);
     $res = \helper\database::context()->exec('select photo_filename
         from photo
@@ -45,7 +49,7 @@ $fat->route('GET /metadata/@year', function (\Base $fat) {
         where photo_year = :year
         and meta_tool is null', ['year' => $year]);
     $res = array_column($res, 'photo_filename');
-    array_splice($res, 0, $limit);
+    $res = array_slice($res, 0, $limit);
     $result = \cli\load::getMeta($res);
     $Result = new \ArrayObject($result->query->pages);
     $Meta = new \model\metadata;
