@@ -1,28 +1,27 @@
 <check if="{{@paginator_pages != 1}}">
-<form action="{{\F3::get('PARAMS.0')}}">
-  <check if="{{@paginator_previous}}">
-    <a href="?{{@params}}&amp;page={{@paginator_page - 1}}">{{@site.previous}}</a>
-  </check>
-  {{@site.items_per_page}}
-  <select name="items">
+    <form action="{{@PARAMS.0}}">
+        <check if="{{@paginator_previous}}">
+            <a href="?{{@params}}&amp;page={{@paginator_page - 1}}">{{@site.previous}}</a>
+        </check>
+        {{@site.items_per_page}}
+        <select name="items">
     <repeat group="{{[24,36,48,76,92]}}" value="{{@el}}">
       <option <check if="{{@el}} == {{@paginator_items}}">selected="selected"</check>>{{@el}}</option>
     </repeat>
-  </select>
-  {{@site.go_to_page}}
-  <select name="page">
+  </select> {{@site.go_to_page}}
+        <select name="page">
     <repeat group="{{range(1, @paginator_pages)}}" value="{{@it_page}}">
       <option <check if="{{@paginator_page}} == {{@it_page}}">selected="selected"</check>>{{@it_page}}</option>
     </repeat>
   </select>
-  <check if="{{@paginator_next}}">
-    <a href="?{{@params}}&amp;page={{@paginator_page + 1}}">{{@site.next}}</a>
-  </check>
-  <check if="{{\F3::exists('GET.user')}}">
-    <input type="hidden" name="user" value="{{\F3::get('GET.user')}}" />
-  </check>
-  <check if="{{\F3::exists('GET.date')}}">
-    <input type="hidden" name="date" value="{{\F3::get('GET.date')}}" />
-  </check>
-</form>
+        <check if="{{@paginator_next}}">
+            <a href="?{{@params}}&amp;page={{@paginator_page + 1}}">{{@site.next}}</a>
+        </check>
+        <check if="{{\F3::exists('GET.user')}}">
+            <input type="hidden" name="user" value="{{\F3::get('GET.user')}}" />
+        </check>
+        <check if="{{\F3::exists('GET.date')}}">
+            <input type="hidden" name="date" value="{{\F3::get('GET.date')}}" />
+        </check>
+    </form>
 </check>

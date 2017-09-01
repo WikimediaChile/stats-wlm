@@ -21,14 +21,29 @@ class paginator
         $this->page = $page;
     }
 
-    public function hasPreviousPage()
+    public function hasPreviousPage() : bool
     {
         return $this->page > 1;
     }
 
-    public function hasNextPage()
+    public function hasNextPage() : bool
     {
         return $this->page < $this->pages;
+    }
+
+    public function hasPages(): bool
+    {
+        return $this->pages > 0;
+    }
+
+    public function getPage() : int
+    {
+        return $this->page;
+    }
+
+    public function getPages(): int
+    {
+        return $this->pages;
     }
 
     public function render(string $ui = 'paginator.htm')

@@ -45,7 +45,11 @@ return array(
             'previous' => 'Anterior',
             'next' => 'Siguiente',
             'items_per_page' => 'Fotos por página',
-            'go_to_page' => 'Ir a la página'
+            'go_to_page' => 'Ir a la página',
+            'photo_user' => '{0}: fotos en {1} por {2}',
+            'photo_day' => '{0}: fotos en {1} el día {2}',
+            'photos_user_day' => '{0}: fotos en {1} por {2} el día {3}',
+            'page' => 'Página {0} de {1}',
             )
         ,
     'message' =>
