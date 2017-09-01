@@ -56,12 +56,13 @@ $fat->route('GET /metadata/@year/@limit', function (\Base $fat) {
     $i = 0;
     $total_files = count($Result);
     foreach ($Result as $page) {
-        if(!is_array($page->categories)){
+        if (!is_array($page->categories) || count($page->categories) === 0 || is_null($page->categories)) {
             $uploaded = [];
+        } else {
+            $uploaded = array_filter($page->categories, function ($f) {
+                return stristr($f->title, 'Uploaded') !== false;
+            });
         }
-        $uploaded = array_filter($page->categories, function ($f) {
-            return stristr($f->title, 'Uploaded') !== false;
-        });
         $campaign = array_map(function ($e) {
             return $e->title;
         }, $uploaded);
