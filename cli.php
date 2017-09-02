@@ -50,10 +50,11 @@ $fat->route('GET /metadata/@year/@limit', function (\Base $fat) {
         and meta_tool is null', ['year' => $year]);
     $res = array_column($res, 'photo_filename');
     $res = array_slice($res, 0, $limit);
-    $result = \cli\load::getMeta($res);
-    if (count($result) === 0) {
+    if (count($res) === 0) {
         die('Nothing to do...');
     }
+    $result = \cli\load::getMeta($res);
+
     $Result = new \ArrayObject($result->query->pages);
     $Meta = new \model\metadata;
     $i = 0;
