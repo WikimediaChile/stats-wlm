@@ -51,6 +51,9 @@ $fat->route('GET /metadata/@year/@limit', function (\Base $fat) {
     $res = array_column($res, 'photo_filename');
     $res = array_slice($res, 0, $limit);
     $result = \cli\load::getMeta($res);
+    if (count($result) === 0) {
+        die('Nothing to do...');
+    }
     $Result = new \ArrayObject($result->query->pages);
     $Meta = new \model\metadata;
     $i = 0;
@@ -71,6 +74,7 @@ $fat->route('GET /metadata/@year/@limit', function (\Base $fat) {
 
         foreach ($campaign as $category) {
             $categoryUnPrefix = substr($category, 9);
+            $categoryUnPrefix = strlen($categoryUnPrefix) > 0 ? $categoryUnPrefix : '(empty)';
             $data = ['meta_filename' => str_replace(" ", "_", substr($page->title, 5)),
                 'meta_tool' => $categoryUnPrefix];
             $Meta->copyfrom($data);
