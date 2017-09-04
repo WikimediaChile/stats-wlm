@@ -12,6 +12,8 @@ class routing
         $country = $fat->get('PARAMS.country');
 
         $title = $fat->format($fat->get('site.title'), $fat->get('site.CONTEST'), \helper\country::getName($country));
+        $last_update = filemtime(sprintf('../files/files-%d.txt', $year));
+        $fat->set('page.update', date('Y-m-d H:i:s'));
         $fat->set('page.title', $title);
 
         $fat->set('campaigns', \model\query\campaign::stats($country, $year));
@@ -76,6 +78,9 @@ class routing
 
     public static function afterroute(\Base $fat) : \Base
     {
+        $year = $fat->exists('PARAMS.year') ? (int)$fat->get('PARAMS.year') : (int)$fat->get('site.year');
+        $last_update = filectime(sprintf('../files/files-%d.txt', $year));
+        $fat->set('page.update', date('Y-m-d H:i:s', $last_update));
         echo \Template::instance()->render('layout.htm');
         return $fat;
     }

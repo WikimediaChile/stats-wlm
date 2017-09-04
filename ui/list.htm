@@ -2,6 +2,7 @@
 <check if="{{@Paginator->hasPages()}}">
     <br /><small style="font-size: 0.95rem">{{@site.page,@Paginator->getPage(),@Paginator->getPages()|format}}</small>
 </check>
+    <br /><small style="font-size: 0.95rem">Last update {{@page.update}}</small>
 </h1>
 <div class="ui four cards">
   <repeat group="{{@list}}" value="{{@el}}">
