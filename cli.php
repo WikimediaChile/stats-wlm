@@ -11,6 +11,13 @@ if (php_sapi_name() !== "cli") {
     die('Nothing to do here!'.PHP_EOL);
 }
 
+$fat->route('GET /reimport/@year', function (\Base $fat) {
+    $year = (int)$fat->get('PARAMS.year');
+
+    \helper\database::context()->exec('DELETE FROM photo where photo_year = ?', $year);
+    $fat->reroute('/import/'.$year);
+});
+
 $fat->route('GET /import/@year', function (\Base $fat) {
     $year = (int)$fat->get('PARAMS.year');
     $filename = sprintf('files/files-%d.txt', $year);
