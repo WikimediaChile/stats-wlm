@@ -14,7 +14,7 @@ return array(
             'uploaders' => 'Usuarios principales',
             'days' => 'Subidas por día',
             'uploads_per_user_day' => 'Subidas por usuario y día',
-            'header_user_photos' => '{0,number} usuarios; {1,number} fotos',
+            'header_user_photos' => '{0,number,integer} usuarios; {1,number,integer} fotos',
             'other_years' => 'Otros años',
             'compare_years' => 'Comparación de años',
             'campaign' => 'Subidas por campaña'
