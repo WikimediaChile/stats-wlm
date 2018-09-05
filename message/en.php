@@ -6,7 +6,7 @@ return array(
             'uploaders' => 'Summary',
             'users' => 'Users',
             'years' => 'Years',
-            'campaign' => 'Campaing - Uploader (beta!)'
+            'campaign' => 'Campaign - Uploader (beta!)'
             )
         ,
     'title' =>
