@@ -32,10 +32,23 @@ class filters extends \Prefab
         return implode(",", $elements);
     }
 
+    function commons(string $url, int $width = 100)
+    {
+        $img = str_replace(" ", "_", $url);
+        $md5 = md5($img);
+        $url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/%s/%s/%s/%spx-%s';
+        if (stripos($img, '.svg') !== false) {
+            $url .= '.png';
+        }
+        return sprintf($url, substr($md5, 0, 1), substr($md5, 0, 2), urlencode($img), $width, urlencode($img));
+    }
+
+
     public static function registry()
     {
         \Template::instance()->filter('url', '\helper\formaters::instance()->url');
         \Template::instance()->filter('nounderline', '\helper\formaters::instance()->nounderline');
         \Template::instance()->filter('timestamp', '\helper\formaters::instance()->timestamp');
+        \Template::instance()->filter('commons', '\helper\formaters::instance()->commons');
     }
 }

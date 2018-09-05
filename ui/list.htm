@@ -8,7 +8,7 @@
   <repeat group="{{@list}}" value="{{@el}}">
     <a class="ui card" href="https://commons.wikimedia.org/wiki/File:{{@el.photo_filename}}" target="_blank">
       <div class="image">
-        <img src="https://commons.wikimedia.org/w/thumb.php?f={{ str_replace('&amp;', '%26', @el.photo_filename) |raw }}&amp;w=500" />
+        <img src="{{ @el.photo_filename | commons }}" />
       </div>
       <div class="content">
         <div class="description">
