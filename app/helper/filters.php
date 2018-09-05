@@ -46,9 +46,9 @@ class filters extends \Prefab
 
     public static function registry()
     {
-        \Template::instance()->filter('url', '\helper\formaters::instance()->url');
-        \Template::instance()->filter('nounderline', '\helper\formaters::instance()->nounderline');
-        \Template::instance()->filter('timestamp', '\helper\formaters::instance()->timestamp');
-        \Template::instance()->filter('commons', '\helper\formaters::instance()->commons');
+        \Template::instance()->filter('url', '\helper\filters::instance()->url');
+        \Template::instance()->filter('nounderline', '\helper\filters::instance()->nounderline');
+        \Template::instance()->filter('timestamp', '\helper\filters::instance()->timestamp');
+        \Template::instance()->filter('commons', '\helper\filters::instance()->commons');
     }
 }
