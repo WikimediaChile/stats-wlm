@@ -32,7 +32,7 @@ class filters extends \Prefab
         return implode(",", $elements);
     }
 
-    function commons(string $url, int $width = 100)
+    function commons(string $url, int $width = 500)
     {
         $img = str_replace(" ", "_", $url);
         $md5 = md5($img);
